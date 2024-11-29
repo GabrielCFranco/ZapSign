@@ -5,8 +5,12 @@ from django.http.response import JsonResponse
 
 from crudHandler.models import Company, Documents, Signers
 from crudHandler.serializers import CompanySerializer, DocumentsSerializer, SignersSerializer
-
+from dotenv import load_dotenv
+import os
 import requests
+
+url_zap = os.getenv("url")
+api_token = os.getenv("api_token")
 
 @csrf_exempt
 def companyApi(request,id=0):
@@ -142,8 +146,8 @@ def makeAPIrequest(body):
     tempCompanyID = int(body.get('companyID'))
     tempUrl = body.get('url_pdf')
 
-    url = "https://sandbox.api.zapsign.com.br/api/v1/docs/"
-    headers = {'Authorization': 'Bearer 8ac47fd2-65b1-4542-82d8-e11a64d9c13f05104f5b-3c9e-4258-b0c1-7acaf09bbc3b'}
+    url = url_zap
+    headers = {'Authorization': api_token}
     response = requests.post(url, headers=headers, json=body, verify=False)
     response_data = response.json()
 
