@@ -21,17 +21,14 @@ export class ViewDocumentsComponent {
   ngOnInit(): void {
     this.document_signerService.getDocuments_Signers().subscribe(data=> {
       this.documents_signers2 = data;
-      console.log("esse é o doc_sigs2: ", data)
     })
   }
 
   deleteDocuments(id: number){
     this.documentService.deleteDocuments(id).subscribe(data => {
-      console.log(data)
       this.ngOnInit();
     })
   }
   logDocumentInfo(docs_sigs: any): void {
-    console.log("Document being edited:", docs_sigs);
   }
 }

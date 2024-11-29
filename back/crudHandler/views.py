@@ -45,7 +45,6 @@ def documentsApi(request,id=0):
             documents_serializer = DocumentsSerializer(documents, many=True)
             return JsonResponse(documents_serializer.data, safe=False)
         else:
-            print("esse é o id: ",id)
             documents = Documents.objects.get(documents_ID=id)
             documents_serializer = DocumentsSerializer(documents)
             return JsonResponse(documents_serializer.data, safe=False)
@@ -140,7 +139,6 @@ def documents_signersApi(request):
 
     
 def makeAPIrequest(body):
-    print("esse é o body: ", body)
     tempCompanyID = int(body.get('companyID'))
     tempUrl = body.get('url_pdf')
 
