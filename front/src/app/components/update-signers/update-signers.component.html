@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Signers</title>
+</head>
+<body>
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Navbar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
+              <a class="nav-link" routerLink="/add">Add Documents</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+        <!--Form-->
+        <div class="my-5">
+            <div class="mx-auto w-25 " style="max-width:100%;">
+              <h2 class="text-center mb-3">Add Documents</h2>
+              <form [formGroup]="form" (ngSubmit)="submit()">
+
+                <!--Signer_Name-->
+                <div class="row">
+                    <div class="col-md-12 form-group mb-3">
+                      <label for="signers_name" class="form-label">Signer Name</label>
+                      <input id="signers_name"  formControlName="signers_name" type="text" name="signers_name" class="form-control" placeholder="Signer Name" required>
+                    </div>
+                </div>
+
+                <!--Signer_Email-->
+                <div class="row">
+                    <div class="col-md-12 form-group mb-3">
+                      <label for="signers_email" class="form-label">Signer Email</label>
+                      <input id="signers_email"  formControlName="signers_email" type="signers_email" name="name" class="form-control" placeholder="Signer Email" required>
+                    </div>
+                </div>
+                
+                <!--Button-->
+                <div class="row">
+                  <div class="col-md-12 form-group">
+                    <input  class="btn btn-primary w-100" type="submit" value="Submit" [disabled]="!form.valid">
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+</body>
+</html>
